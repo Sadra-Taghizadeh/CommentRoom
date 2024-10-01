@@ -1,0 +1,242 @@
+:root {
+    --main-bg-color: #f9f9f9;
+    /* رنگ پس‌زمینه روشن‌تر */
+    --primary-color: #0d6efd;
+    --secondary-color: #ffffff;
+    --border-color: #d1d9e6;
+    --text-color: #333;
+    --text-muted-color: #777;
+    --input-bg-color: #fefefe;
+    /* رنگ پس‌زمینه روشن‌تر برای اینپوت‌ها */
+    --reply-bg-color: #eef6ff;
+    /* پس‌زمینه کمرنگ‌تر برای ریپلای‌ها */
+    --delete-color: #ff4d4d;
+    --reply-color: #28a745;
+    --btn-icon-size: 24px;
+    --icon-like-color: #ff4757;
+    --icon-reply-color: #28a745;
+    --icon-edit-color: #ffa502;
+    --icon-delete-color: #ff4d4d;
+    --border-radius: 12px;
+    /* گوشه‌ها نرم‌تر */
+    --shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+    /* سایه کمی بیشتر */
+    --padding: 20px;
+    --font-size: 16px;
+}
+
+/* تنظیمات عمومی */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Tahoma', sans-serif;
+    direction: rtl;
+    background-color: var(--main-bg-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: var(--padding);
+}
+
+summary{
+    margin-bottom: 20px;
+}
+
+.comments-container {
+    width: 100%;
+    max-width: 800px;
+    background-color: var(--secondary-color);
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
+    border: 1px solid var(--border-color);
+    padding: var(--padding);
+}
+
+/* تنظیم استایل باکس کامنت */
+.comments-container__box {
+    height: 500px;
+    /* ارتفاع بیشتر */
+    overflow-y: auto;
+    padding: 20px;
+    background-color: var(--secondary-color);
+    border-bottom: 1px solid var(--border-color);
+}
+
+/* استایل هر کامنت و ریپلای */
+.comment,
+.reply {
+    padding: 15px;
+    margin-bottom: 15px;
+    background-color: var(--input-bg-color);
+    border-radius: var(--border-radius);
+    border: 1px solid var(--border-color);
+    box-shadow: var(--shadow);
+}
+
+.comment__header,
+.reply__header {
+display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+    border-bottom: 1px solid #ebe9e9;
+    padding-bottom: 20px;
+}
+
+.comment__avatar,
+.reply__avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-left: 10px;
+}
+
+.comment__info,
+.reply__info {
+    flex: 1;
+}
+
+.comment__name,
+.reply__name {
+    font-weight: bold;
+    font-size: 14px;
+    margin-bottom: 5px;
+    color: var(--text-color);
+}
+
+.comment__time,
+.reply__time {
+    font-size: 12px;
+    color: var(--text-muted-color);
+}
+
+.comment__text,
+.reply__text {
+font-size: 18px;
+    line-height: 1.6;
+    color: var(--text-color);
+    font-weight: 300;
+    margin: 10px 20px 20px 20px;
+}
+
+.comment__actions,
+.reply__actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 15px;
+        margin-bottom: 20px;
+}
+
+/* آیکون‌ها */
+.comment__btn,
+.reply__btn {
+    font-size: var(--btn-icon-size);
+    cursor: pointer;
+    transition: color 0.2s ease;
+    
+}
+
+.comment__like-btn {
+    color: rgb(110, 110, 110);
+    font-size: 25px;
+}
+.comment__like-btn.liked {
+    color: rgb(255, 15, 15);
+}
+
+.comment__reply-btn {
+    color: var(--icon-reply-color);
+    font-size: 25px;
+}
+
+.comment__edit-btn {
+    color: var(--icon-edit-color);
+    font-size: 25px;
+}
+
+.comment__delete-btn {
+    color: var(--icon-delete-color);
+    font-size: 25px;
+}
+
+.comment__btn:hover,
+.reply__btn:hover {
+    color: var(--primary-color);
+}
+.reply{
+    background-color: #fcfdffe5;
+}
+/* استایل اینپوت‌ها و دکمه‌ها */
+#comment-input,
+.reply-input input,
+.comment__edit-input {
+    flex: 1;
+    padding: 15px 20px;
+    /* پدینگ بیشتر */
+    border-radius: var(--border-radius);
+    border: 1px solid var(--border-color);
+    background-color: var(--input-bg-color);
+    font-size: var(--font-size);
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+.comment__edit-input{
+    width: 400px;
+}
+#comment-input:focus,
+.reply-input input:focus,
+.comment__edit-input:focus {
+    background-color: #ffffff;
+    box-shadow: 0 0 8px rgba(0, 123, 255, 0.3);
+    outline: none;
+}
+
+/* دکمه‌های ارسال */
+.comments-container__send-btn,
+.send-reply-btn {
+    background-color: var(--primary-color);
+    color: #ffffff;
+    border-radius: var(--border-radius);
+    padding: 12px 20px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-decoration: none;
+}
+
+.comments-container__send-btn:hover,
+.send-reply-btn:hover {
+    background-color: var(--reply-color);
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* استایل بخش اینپوت */
+.comments-container__input {
+    display: flex;
+    padding: 20px;
+    background-color: var(--input-bg-color);
+    gap: 15px;
+    border-radius: var(--border-radius);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
+}
+
+
+
+
+.cancel-reply-btn{
+    background-color: rgba(221, 101, 101, 0.904);
+        color: #ffffff;
+        border-radius: var(--border-radius);
+        padding: 12px 20px;
+        font-size: 14px;
+        cursor: pointer;
+        transition: background-color 0.3s ease, box-shadow 0.3s ease;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        text-decoration: none;
+}
